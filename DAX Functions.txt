@@ -1,0 +1,63 @@
+## MEASURES
+
+1. Total Sales =
+SUM(car_prices[Sales])
+
+2. Prev Month Sales =
+CALCULATE(SUM(car_prices[Sales]),PREVIOUSMONTH('Calendar'[Date]))
+
+3. MoM Variance =
+VAR CurrentMonthSales = CALCULATE(SUM(car_prices[Sales]))
+VAR PrevMonthSales = CALCULATE(SUM(car_prices[Sales]), PREVIOUSMONTH('Calendar'[Date]))
+RETURN CurrentMonthSales - PrevMonthSales
+
+4. % MoM Variance =
+DIVIDE([MoM Variance],[Prev Month Sales])
+
+5. 2022 Sales =
+CALCULATE(SUM(car_prices[Sales]), FILTER('Calendar', YEAR('Calendar'[Date]) = 2022))
+
+6. 2023 Sales =
+CALCULATE(SUM(car_prices[Sales]), FILTER('Calendar', YEAR('Calendar'[Date]) = 2023))
+
+7. % YoY Variance =
+DIVIDE(([2023 Sales] - [2022 Sales]), [2022 Sales])
+
+8. Total Qty Sold 2022 =
+CALCULATE(COUNT(car_prices[VIN]), FILTER('Calendar', YEAR('Calendar'[Date]) = 2022))
+
+9. Total Qty Sold 2023 =
+CALCULATE(COUNT(car_prices[VIN]), FILTER('Calendar', YEAR('Calendar'[Date]) = 2023))
+
+10. % YoY Variance (Qty) =
+([Qty_2023] - [Qty_2022])/([Qty_2022])
+
+11. Total Vehicles Sold =
+COUNT(car_prices[VIN])
+
+
+## CALCULATED COLUMNS
+
+1. Manufacture Year (Grouped) =
+VAR BaseYear = FLOOR( car_prices[Year of manufacture], 3 ) 
+VAR YearEnd = BaseYear + 2
+RETURN BaseYear & "-" & YearEnd
+
+2. DAY OF WEEK =
+FORMAT(car_prices[Date Sold], "DDDD")
+
+3. Day Num =
+WEEKDAY(car_prices[Date Sold])
+
+
+## CALCULATED TABLE
+
+Calendar = ADDCOLUMNS CALENDARAUTO (),
+"Year", YEAR([Date]),
+"MonthNumber", MONTH([Date]),
+"Month", FORMAT ([Date],"MMMM"),
+"Day", DAY ([Date]),
+"Quarter", FORMAT ([Date]),"\QQ"))
+
+
+
