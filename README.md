@@ -20,7 +20,7 @@ The original data downloaded from Kaggle contained only one table having the sal
 - Promoted Headers: Some columns having their headers in the first row were also promoted to ensure easy understanding of column names.
 - Renaming Columns: Some columns were also renamed and capitalized for easy understanding in the course of the project.
 - Replacing values: Values in the date column having values of 2014 and 2015 were replaced with 2022 and 2023 respectively.
-- Appending Queries: A new query (CSV file) was generated from SQL and appended to the Car Prices Table. This query was imported to fill in for months that had zero sales.
+- Appending Queries: A new query (CSV file) was generated from SQL and appended to the Car Prices Table. This query was imported to fill in for months that had no sales.
 - Importing New Query: A new query or data source (a CSV file) was imported. This query contained two columns. The query was renamed as "US States" and was sourced from the [US Bureau of Labor Statistics](https://www.bls.gov/respondents/mwr/electronic-data-interchange/appendix-d-usps-state-abbreviations-and-fips-codes.htm)
 
 **The Car Prices Table** having the original data, after several transformations in the Power Query Editor was left with the following columns:
@@ -48,7 +48,7 @@ The original data downloaded from Kaggle contained only one table having the sal
 
 **2. Power Query Editor:** This is an advanced feature of Power BI that allows transformation and cleaning to be carried out on a dataset. The Power Query Editor was used in carrying out transformations across different columns such as removing duplicates, removing blank rows, formatting columns, replacing values, etc.
 
-**3. MySQL:** MySQL was used in creating a new table of 1000 rows which was appended in the Power Query Editor to the "Car Prices Table". This table was used to fill in for months that recorded no sales. Certain conditions were used in creating the table. The [SQL script] () for this was attached to this repository.
+**3. MySQL:** MySQL was used in creating a new table of 1000 rows which was appended in the Power Query Editor to the "Car Prices Table". This table was used to fill in for months that recorded no sales. Certain conditions were used in creating the table. The [SQL script](https://github.com/Ernestug/Car-Sales/blob/main/Data%20(CSV%2C%20Scripts)/Car_prices_2.sql) for this was attached to this repository.
 
 **4. Microsoft Excel:** This was the least used tool in the course of this project. Microsoft Excel was used at the start of the project to provide an understanding of the data structure, and to provide a guide on the steps to be carried out in transforming the data using the Power Query Editor.
 
@@ -68,25 +68,29 @@ The data for this project was collected from Kaggle. The data included sales rec
 
 ## Data Cleaning & Preparation
 
-The data cleaning process began in the Power Query Editor in Power BI. Here, some major operations such as removal of duplicates, removal of blank rows, and removal of unwanted columns were done. Other text operations such as capitalising, trimming, and replacing values were also carried out on some columns. The [M Query Codes] from the Power Query Editor have been attached to this repository. Please note that the Power Query Editor automatically writes/generates these codes based on the steps applied in the editor.
+The data cleaning process began in the Power Query Editor in Power BI. Here, some major operations such as removal of duplicates, removal of blank rows, and removal of unwanted columns were done. Other text operations such as capitalising, trimming, and replacing values were also carried out on some columns. The [M Query Codes](https://github.com/Ernestug/Car-Sales/blob/main/Power%20Query%20Editor%20(M%20Codes).txt) from the Power Query Editor have been attached to this repository. Please note that the Power Query Editor automatically writes/generates these codes based on the steps applied in the editor.
 
 After data cleaning. it was observed that some months were not represented in the dataset. To correct this and ensure adequate trend analysis, I created a new table (car_prices_2) using SQL with certain conditions specified. This ensured that all months had sales values in the data visualization.
 
 In addition, I created new measures and new columns to provide in-depth insights into the various sales records. Some of the measures and columns include:
 
-- % MoM Variance: This measure was created to visualize the month-on-month percentage difference in sales and quantity sold.
-- % YoY Variance: This was used to visualize the year-on-year percentage difference in sales and quantity sold.
-- 2022 & 2023 Sales: These two measures were created to visualize the total sales generated in 2022 and 2023 respectively.
-- Manufacture Year (Grouped): This column was created to group the manufacture years in 3s (1983 - 1985, 1986 - 1989, 1990 - 1992, etc.). This was done because there was a long range of manufacture years in the dataset (from 1983 to 2015).
-- Day of Week: This new column was created to extract the specific day of the week from the sales date column.
+- **% MoM Variance:** This measure was created to visualize the month-on-month percentage difference in sales and quantity sold.
+- **%YoY Variance:** This was used to visualize the year-on-year percentage difference in sales and quantity sold.
+- **2022 & 2023 Sales:** These two measures were created to visualize the total sales generated in 2022 and 2023 respectively.
+- **Manufacture Year (Grouped):** This column was created to group the manufacture years in 3s (1983 - 1985, 1986 - 1989, 1990 - 1992, etc.). This was done because there was a long range of manufacture years in the dataset (from 1983 to 2015).
+- **Day of Week:** This new column was created to extract the specific day of the week from the sales date column.
 
-I also created a Calendar Table to provide an extensive hierarchy from the "Date Sold" column - splitting the dates into Year, Month, Quarter, and Day. Click [here] to view the DAX functions used to create the measures, calculated columns, and table.
+I also created a Calendar Table to provide an extensive hierarchy from the "Date Sold" column - splitting the dates into Year, Month, Quarter, and Day. Click [here](https://github.com/Ernestug/Car-Sales/blob/main/DAX%20Functions.txt) to view the DAX functions used to create the measures, calculated columns, and table.
 
 ## Data Model
 
 The Data Model was automatically created in Power BI. This clearly shows the relationship and cardinality between the various tables in this project.
 
+
+
 ![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Data%20Model.png)
+
+
 
 ## Data Analysis & Visualization
 
@@ -96,21 +100,38 @@ Some Key Insights from the data visualization are summarized below:
 
 - **Overview:** The overview section shows that a total of $6.5bn was generated in sales from 478K vehicles sold. There was a huge increase in sales of 948.03% from 2022 to 2023. This was as a result of more units of vehicles sold in 2023. Also, "Ford" vehicles generated more revenue than any brand, while Florida had more sales than any other state. "Black" was the most preferred colour among buyers, followed by White, Gray, Silver, and Blue. For the monthly trend, January and February were the months with the highest sales, contributing to over 50% of the total revenue.
 
+
+
 ![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Overview%20(Dashboard).jpg)
+
+
 
 - **Time Analysis:** The Time Analysis Dashboard shows that the weekends generated more sales. Fridays, Saturdays, and Sundays cumulatively contributed to 90% of total sales. The Quarterly Trend shows a sharp decline in sales from Q1 to Q2, and from Q2 to Q3, but with a slight increase from Q3 to Q4. The MoM Variance shows that December 2022 recorded the highest increase in sales of 84K% from the previous month, while February 2022 showed the lowest drop in sales of -99.65%. For the vehicle manufacture year, most sales were made from the most recently manufactured vehicles; particularly from 2004 to 2015, with vehicles manufactured between 2013 to 2015 generating the most number of sales of over $3bn.
 
+
+
 ![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Time%20Analysis%20(Dashboard).jpg)
+
+
 
 - **Location Analysis:** 33 states in the United States were represented in this analysis across the 4 major regions. While Florida generated the most sales from all states, some locations showed a very huge growth in their numbers from 2022 and 2023. An example is Mississippi which showed a growth of over 100k%. This presents an opportunity for more marketing efforts channeled towards this state and similar states that showed large increase in year-on-year sales.
 
+
+
 ![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Location%20Analysis%20(Dashboard).jpg)
+
+
 
 - **Brands:** A total of 61 different brands of vehicles were analyzed in this project. These vehicles had 19 varying colours. The top brand which generated the highest sales of $1.2bn was Ford. Chevrolet, Nissan, Toyota, and BMW followed closely; all 5 brands contributing to 49% of the total sales. Some brands like Lincoln and Tesla showed huge increase in YoY sales. This presents an opportunity to procure more vehicles like these in 2024, specifically luxury and electric brands of cars. Specific vehicles like trucks were only sold once in 2022 and had no sales in 2023 - an indication that these options may need to be discontinued in 2024.
 
+
+
 ![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Brands%20(Dashboard).jpg)
 
-## Conclusiom
+
+
+
+## Conclusion
 
 The analysis provides a solid foundation for optimizing Greenwood Motors' operations. Seasonal trends were clearly identified to guide inventory planning and promotional timing. The data unveils strong consumer preferences for common colours like black, white, gray, silver, and blue; informing future vehicle sourcing.  Additionally, the analysis provides details into vehicle categories and suggests improvements in future procurement of vehicles.
 
