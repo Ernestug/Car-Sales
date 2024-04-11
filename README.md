@@ -40,7 +40,7 @@ The original data downloaded from Kaggle contained only one table having the sal
 - Region: The region where the state is situated.
 - State Name: The name of the state.
 
-***The CSV files and scripts generated from the Power Query Editor have been included in the repository for this project.***
+***The CSV files and scripts generated from the Power Query Editor have been included in the repository for this project. The CSV file for the main table wasn't attached due to it's size, but it can be downloaded [here](https://www.kaggle.com/datasets/syedanwarafridi/vehicle-sales-data)***
 
 ## Tools and Technologies used
 
@@ -56,7 +56,7 @@ The original data downloaded from Kaggle contained only one table having the sal
 
 A Project Workflow provides a good structure for every data analytics project. It helps to establish a clear roadmap of sequential steps from the initial problem to the final insights. This keeps the project organized and aligned with goals. It also outlines tasks within each project phase, preventing important elements from being overlooked and making the process more efficient. The workflow for this project is shown below:
 
-![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Project%20Workflow.jpg)
+![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Project%20Workflow.png)
 
 ## Project Objective
 
@@ -80,11 +80,13 @@ In addition, I created new measures and new columns to provide in-depth insights
 - Manufacture Year (Grouped): This column was created to group the manufacture years in 3s (1983 - 1985, 1986 - 1989, 1990 - 1992, etc.). This was done because there was a long range of manufacture years in the dataset (from 1983 to 2015).
 - Day of Week: This new column was created to extract the specific day of the week from the sales date column.
 
-I also created a Calendar Table to provide an extensive hierarchy from the "Date Sold" column - splitting the dates into Year, Month, Quarter, and Day.
+I also created a Calendar Table to provide an extensive hierarchy from the "Date Sold" column - splitting the dates into Year, Month, Quarter, and Day. Click [here] to view the DAX functions used to create the measures, calculated columns, and table.
 
 ## Data Model
 
-The Data Model was automatically created in Power BI. This clearly shows the relationship and cardinality between the various tables in thisd project.
+The Data Model was automatically created in Power BI. This clearly shows the relationship and cardinality between the various tables in this project.
+
+![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Data%20Model.png)
 
 ## Data Analysis & Visualization
 
@@ -94,11 +96,19 @@ Some Key Insights from the data visualization are summarized below:
 
 - **Overview:** The overview section shows that a total of $6.5bn was generated in sales from 478K vehicles sold. There was a huge increase in sales of 948.03% from 2022 to 2023. This was as a result of more units of vehicles sold in 2023. Also, "Ford" vehicles generated more revenue than any brand, while Florida had more sales than any other state. "Black" was the most preferred colour among buyers, followed by White, Gray, Silver, and Blue. For the monthly trend, January and February were the months with the highest sales, contributing to over 50% of the total revenue.
 
+![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Overview%20(Dashboard).jpg)
+
 - **Time Analysis:** The Time Analysis Dashboard shows that the weekends generated more sales. Fridays, Saturdays, and Sundays cumulatively contributed to 90% of total sales. The Quarterly Trend shows a sharp decline in sales from Q1 to Q2, and from Q2 to Q3, but with a slight increase from Q3 to Q4. The MoM Variance shows that December 2022 recorded the highest increase in sales of 84K% from the previous month, while February 2022 showed the lowest drop in sales of -99.65%. For the vehicle manufacture year, most sales were made from the most recently manufactured vehicles; particularly from 2004 to 2015, with vehicles manufactured between 2013 to 2015 generating the most number of sales of over $3bn.
+
+![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Time%20Analysis%20(Dashboard).jpg)
 
 - **Location Analysis:** 33 states in the United States were represented in this analysis across the 4 major regions. While Florida generated the most sales from all states, some locations showed a very huge growth in their numbers from 2022 and 2023. An example is Mississippi which showed a growth of over 100k%. This presents an opportunity for more marketing efforts channeled towards this state and similar states that showed large increase in year-on-year sales.
 
+![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Location%20Analysis%20(Dashboard).jpg)
+
 - **Brands:** A total of 61 different brands of vehicles were analyzed in this project. These vehicles had 19 varying colours. The top brand which generated the highest sales of $1.2bn was Ford. Chevrolet, Nissan, Toyota, and BMW followed closely; all 5 brands contributing to 49% of the total sales. Some brands like Lincoln and Tesla showed huge increase in YoY sales. This presents an opportunity to procure more vehicles like these in 2024, specifically luxury and electric brands of cars. Specific vehicles like trucks were only sold once in 2022 and had no sales in 2023 - an indication that these options may need to be discontinued in 2024.
+
+![](https://github.com/Ernestug/Car-Sales/blob/main/Images/Brands%20(Dashboard).jpg)
 
 ## Conclusiom
 
