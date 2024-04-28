@@ -44,7 +44,7 @@ The original data downloaded from Kaggle contained only one table having the sal
 
 ## Tools and Technologies used
 
-**1. Power BI:** This was the major tool used in this project. Power BI was used in coming up with the visualization and dashboards for the inisights generated from this project. Power BI service, a component of Power BI was also utilized in creating a web link that allows interactivity and navigation with the report.
+**1. Power BI:** This was the major tool used in this project. Power BI was used in coming up with the visualization and dashboards for the insights generated from this project. Power BI service, a component of Power BI was also utilized in creating a web link that allows interactivity and navigation with the report.
 
 **2. Power Query Editor:** This is an advanced feature of Power BI that allows transformation and cleaning to be carried out on a dataset. The Power Query Editor was used in carrying out transformations across different columns such as removing duplicates, removing blank rows, formatting columns, replacing values, etc.
 
